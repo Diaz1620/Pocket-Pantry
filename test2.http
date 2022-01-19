@@ -1,0 +1,33 @@
+GET http://localhost:8000/api/users HTTP/1.1
+
+###
+
+POST http://localhost:8000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName":"Edward",
+    "lastName":"Santiago",
+    "email":"testemail@email.com",
+    "password":"TestPass112"
+} 
+
+###
+
+GET http://localhost:8000/api/users/61de38eb8e1bb48410659591 HTTP/1.1
+
+###
+
+PUT http://localhost:8000/api/users/61de38eb8e1bb48410659591 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName":"Lionel",
+    "lastName":"Richie",
+    "email":"testemail@email.com",
+    "password":"TestPass112"
+}
+
+###
+
+DELETE http://localhost:8000/api/users/61de38a28e1bb4841065958e
