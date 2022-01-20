@@ -8,9 +8,9 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="nav-wrapper">
-        <Link to="/" className="center brand-logo">
+        <a href="#" className="center brand-logo">
           PocketPantry
-        </Link>
+        </a>
         <ul id="nav-mobile" className="left">
           <li>
             <Link className="waves-effect" to="/">
@@ -20,7 +20,7 @@ const NavBar = () => {
         </ul>
         <ul id="nav-mobile2" className="right">
           <li>
-            <Link className="waves-effect" to="/">
+            <Link className="waves-effect" to="/new">
               <FontAwesomeIcon icon={faPlus} />
             </Link>
           </li>

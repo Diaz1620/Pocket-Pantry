@@ -1,16 +1,16 @@
-import './App.css';
+import "./App.css";
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.js";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Router,Link} from '@reach/router';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Router, Link } from "@reach/router";
 import NavBar from "./components/navBar";
 import GroceryForm from "./components/groceryForm";
 import GlobalState from "./context/globalState";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GroceryList from "./components/groceryList";
-import Main from './views/Main';
-import Create from './views/Create';
-import Edit from './views/Edit';
+import Main from "./views/Main";
+import Create from "./views/Create";
+import Edit from "./views/Edit";
 
 function App() {
   return (
@@ -31,17 +31,17 @@ function App() {
 
 export default App;
 
-    // <GlobalState>
-    //   <BrowserRouter>
-    //     <div className="App">
-    //       <NavBar></NavBar>
+// <GlobalState>
+//   <BrowserRouter>
+//     <div className="App">
+//       <NavBar></NavBar>
 
-    //       <div className="container">
-    //         <Routes>
-    //           <Route path="/" exact element={<GroceryForm />} />
-    //           <Route path="/list" exact element={<GroceryList />} />
-    //         </Routes>
-    //       </div>
-    //     </div>
-    //   </BrowserRouter>
-    // </GlobalState>
+//       <div className="container">
+//         <Routes>
+//           <Route path="/" exact element={<GroceryForm />} />
+//           <Route path="/list" exact element={<GroceryList />} />
+//         </Routes>
+//       </div>
+//     </div>
+//   </BrowserRouter>
+// </GlobalState>
