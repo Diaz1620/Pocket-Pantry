@@ -1,6 +1,7 @@
 import "./App.css";
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.js";
+import "material-icons/iconfont/material-icons.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router, Link } from "@reach/router";
 import NavBar from "./components/navBar";
@@ -11,6 +12,7 @@ import GroceryList from "./components/groceryList";
 import Main from "./views/Main";
 import Create from "./views/Create";
 import Edit from "./views/Edit";
+import UserLoginPage from "./components/userLoginPage";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
         <Main path="/" />
         <Create path="/new" />
         <Edit path="/edit/:id" />
+        <UserLoginPage path="/login" />
       </Router>
     </div>
   );

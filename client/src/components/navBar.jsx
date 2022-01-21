@@ -7,7 +7,6 @@ import { useModal } from "../hooks/useModal";
 import Modal from "./modal";
 
 const NavBar = () => {
-  const [isOpenModalAdd, openModalAdd, closeModalAdd] = useModal(false);
   return (
     <nav className="navbar">
       <div className="nav-wrapper">
@@ -16,7 +15,7 @@ const NavBar = () => {
         </a>
         <ul id="nav-mobile" className="left">
           <li>
-            <Link className="waves-effect" to="/">
+            <Link className="waves-effect" to="/login">
               <FontAwesomeIcon icon={faUser} />
             </Link>
           </li>

@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 import { Link } from "@reach/router";
 import Modal from "../components/modal";
-import { useModal } from "../hooks/useModal";
 
 const Main = (props) => {
-  const [isOpenModalAdd, openModalAdd, closeModalAdd] = useModal(false);
   const [groceries, setGroceries] = useState(false);
 
   useEffect(() => {
