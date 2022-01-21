@@ -5,53 +5,62 @@ import "./groceryForm.css";
 // import $ from "jquery";
 
 const GroceryForm = (props) => {
-  const{inputs,handleInputChange,handleSubmit,title,submitValue,errors} = props;
+  const [isDisabled, setIsDisabled] = useState(true);
+  const {
+    inputs,
+    handleInputChange,
+    handleSubmit,
+    title,
+    submitValue,
+    handleDisabled,
+    errors,
+  } = props;
 
   return (
-    <form className="col-6 mx-auto" onSubmit={handleSubmit}>
+    <form className="container col-6 mx-auto" onSubmit={handleSubmit}>
       <h2 className="text-center">{title}</h2>
       <div className="form-group">
         <label htmlFor="name">Name:</label>
-        <input 
+        <input
           type="text"
           name="name"
           className="form-control"
           onChange={handleInputChange}
           value={inputs.name}
         />
-        <span className="text-danger">
+        <span className="red-text text-accent-3">
           {errors.name ? errors.name.message : ""}
         </span>
       </div>
       <div className="form-group">
         <label htmlFor="amount">Amount:</label>
-        <input 
+        <input
           type="number"
           name="amount"
           className="form-control"
           onChange={handleInputChange}
           value={inputs.amount}
         />
-        <span className="text-danger">
+        <span className="red-text text-accent-3">
           {errors.amount ? errors.amount.message : ""}
         </span>
       </div>
       <div className="form-group">
         <label htmlFor="unit">Unit:</label>
-        <input 
+        <input
           type="text"
           name="unit"
           className="form-control"
           onChange={handleInputChange}
           value={inputs.unit}
         />
-        <span className="text-danger">
+        <span className="red-text text-accent-3">
           {errors.unit ? errors.unit.message : ""}
         </span>
       </div>
       <div className="form-group">
         <label htmlFor="category">Category:</label>
-        <input 
+        <input
           type="text"
           name="category"
           className="form-control"
@@ -60,10 +69,17 @@ const GroceryForm = (props) => {
         />
         <span className="text-danger"></span>
       </div>
-      <input type="submit" value={submitValue} className="btn btn-primary" />
+      <input
+        type="submit"
+        value={submitValue}
+        className="btn waves-effect modal-close"
+        disabled={handleDisabled}
+      />
+      <button className="btn waves-effect red accent-3 modal-close">
+        Cancel
+      </button>
     </form>
-  )
-
+  );
 
   // // State Variables
   // const [product, setProduct] = useState({});
