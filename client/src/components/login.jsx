@@ -1,8 +1,16 @@
-import axios from "axios";
+import Axios from "axios";
 import { useEffect, useState } from "react";
 import "./login.css";
 
 const Login = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:8000/api/users")
+      .then((res) => setUsers(res.data.results))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div class="row">
       <h1>Login</h1>
