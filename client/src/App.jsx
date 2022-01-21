@@ -16,10 +16,10 @@ function App() {
   return (
     <div className="App">
       <NavBar></NavBar>
-      <div className="d-flex col-6 mx-auto justify-content-around flex-wrap">
+      {/* <div className="d-flex col-6 mx-auto justify-content-around flex-wrap">
         <Link to="/">List</Link>
         <Link to="/new">Add Item</Link>
-      </div>
+      </div> */}
       <Router>
         <Main path="/" />
         <Create path="/new" />

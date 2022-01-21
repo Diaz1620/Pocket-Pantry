@@ -3,8 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faPlus, faListUl } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "@reach/router";
+import { useModal } from "../hooks/useModal";
+import Modal from "./modal";
 
 const NavBar = () => {
+  const [isOpenModalAdd, openModalAdd, closeModalAdd] = useModal(false);
   return (
     <nav className="navbar">
       <div className="nav-wrapper">
@@ -20,9 +23,10 @@ const NavBar = () => {
         </ul>
         <ul id="nav-mobile2" className="right">
           <li>
-            <Link className="waves-effect" to="/new">
+            {/* <!-- Modal Trigger --> */}
+            <a class="waves-effect waves-light modal-trigger" href="#modal1">
               <FontAwesomeIcon icon={faPlus} />
-            </Link>
+            </a>
           </li>
           <li>
             <Link className="waves-effect" to="/">
