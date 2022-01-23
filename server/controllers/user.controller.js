@@ -2,11 +2,7 @@ const User = require("../models/user.model");
 
 const jwt = require("jsonwebtoken");
 
-const payload = {
-    id: user._id
-};
 
-const userToken = jwt.sign(payload, process.env.SECRET_KEY);
 
 module.exports = {
     index: (req,res) => {

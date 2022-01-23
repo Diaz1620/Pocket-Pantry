@@ -1,13 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-UserSchema.pre('save', function(next) {
-    bcrypt.hash(this.password, 10)
-        .then(hash => {
-        this.password = hash;
-        next();
-        });
-    });
+
 
 const UserSchema = new mongoose.Schema({
     firstName: {
@@ -32,6 +26,14 @@ const UserSchema = new mongoose.Schema({
         minlength: [8, "Password must be 8 characters or longer"]
     }
 }, {timestamps: true});
+
+UserSchema.pre('save', function(next) {
+    bcrypt.hash(this.password, 10)
+        .then(hash => {
+        this.password = hash;
+        next();
+        });
+    });
 
 UserSchema.virtual('confirmPassword')
     .get( () => this._confirmPassword )
