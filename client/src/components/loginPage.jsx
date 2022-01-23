@@ -1,8 +1,8 @@
 import Axios from "axios";
 import { useEffect, useState } from "react";
-import "./login.css";
+import "./loginPage.css";
 
-const Login = (props) => {
+const LoginPage = (props) => {
   const [usersList, setUsersList] = useState([]);
   const [user, setUser] = useState({
     email: "",
@@ -79,4 +79,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default LoginPage;
