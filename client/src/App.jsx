@@ -23,10 +23,10 @@ function App() {
         <Link to="/new">Add Item</Link>
       </div> */}
       <Router>
-        <Main path="/" />
+        <Main path="/list" />
         <Create path="/new" />
         <Edit path="/edit/:id" />
-        <UserLoginPage path="/login" />
+        <UserLoginPage path="/" />
       </Router>
     </div>
   );

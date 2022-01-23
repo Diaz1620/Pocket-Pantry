@@ -7,7 +7,7 @@ const Login = (props) => {
   const [user, setUser] = useState({
     email: "",
     password: "",
-  });
+  }); 
 
   const handleInputChange = (e) => {
     setUser({

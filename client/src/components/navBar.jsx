@@ -15,7 +15,7 @@ const NavBar = () => {
         </a>
         <ul id="nav-mobile" className="left">
           <li>
-            <Link className="waves-effect" to="/login">
+            <Link className="waves-effect" to="/">
               <FontAwesomeIcon icon={faUser} />
             </Link>
           </li>
@@ -23,12 +23,12 @@ const NavBar = () => {
         <ul id="nav-mobile2" className="right">
           <li>
             {/* <!-- Modal Trigger --> */}
-            <a class="waves-effect waves-light modal-trigger" href="#modal1">
+            <Link class="waves-effect waves-light modal-trigger" to="/new">
               <FontAwesomeIcon icon={faPlus} />
-            </a>
+            </Link>
           </li>
           <li>
-            <Link className="waves-effect" to="/">
+            <Link className="waves-effect" to="/list">
               <FontAwesomeIcon icon={faListUl} />
             </Link>
           </li>
