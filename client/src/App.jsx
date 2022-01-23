@@ -26,7 +26,7 @@ function App() {
         <Main path="/list" />
         <Create path="/new" />
         <Edit path="/edit/:id" />
-        <UserLoginPage path="/" />
+        <Login path="/" />
       </Router>
     </div>
   );
