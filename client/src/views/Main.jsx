@@ -13,6 +13,12 @@ const Main = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleDestroyGrocery = id => {
+    Axios.delete(`http://localhost:8000/api/groceries/${id}`)
+        .then(res => setGroceries(res.data.results))
+        .catch(err => console.log(err))
+}
+
   return groceries ? (
     <>
       <div className="grocery-list">
@@ -43,12 +49,17 @@ const Main = (props) => {
                         Edit
                       </Link>
                       <span className="p-1" />
+
                       <button
                         className="btn modal-trigger"
                         data-target={"ItemModal" + g._id}
                       >
-                        Delete
+                        Test Modal
                       </button>
+
+                      <button onClick={() => handleDestroyGrocery(g._id)}  
+                              className="btn btn-danger">Delete</button>
+
                     </div>
                   </td>
                   <ItemModal item={g} />

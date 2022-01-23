@@ -24,7 +24,7 @@ module.exports = {
     },
     destroy: (req,res) => {
         Grocery.deleteOne({_id:req.params.id})
-            .then(data => res.redirect('/api/groceries'))
+            .then(data => res.redirect(303,'/api/groceries'))
             .catch(err => res.status(404).json({errors:err.errors}));
     }
 }
