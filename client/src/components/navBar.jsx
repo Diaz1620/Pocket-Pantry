@@ -34,6 +34,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
+      {/* <Modal></Modal> */}
     </nav>
   );
 };
