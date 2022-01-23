@@ -3,20 +3,20 @@ import M from "materialize-css";
 // import "materialize-css/dist/css/materialize.min.css";
 import Create from "../views/Create";
 
-class Modal extends Component {
+class ItemModal extends Component {
   componentDidMount() {
     const options = {
       onOpenStart: () => {
-        console.log("Open Start");
+        console.log("Open ItemModal Start");
       },
       onOpenEnd: () => {
-        console.log("Open End");
+        console.log("Open ItemModal End");
       },
       onCloseStart: () => {
-        console.log("Close Start");
+        console.log("Close ItemModal Start");
       },
       onCloseEnd: () => {
-        console.log("Close End");
+        console.log("Close ItemModal End");
       },
       inDuration: 250,
       outDuration: 250,
@@ -25,21 +25,25 @@ class Modal extends Component {
       startingTop: "4%",
       endingTop: "10%",
     };
-    M.Modal.init(this.Modal, options);
+    M.Modal.init(this.ItemModal, options);
   }
 
   render() {
     return (
       <>
         <div
-          ref={(Modal) => {
-            this.Modal = Modal;
+          ref={(ItemModal) => {
+            this.ItemModal = ItemModal;
           }}
-          id="modal1"
+          id={"ItemModal" + this.props.item._id}
           className="modal"
         >
           <div className="modal-content">
-            <Create></Create>
+            <h1>{this.props.item.name}</h1>
+            <h4>
+              {this.props.item.amount} {this.props.item.unit}
+            </h4>
+            <h4>{this.props.item.category}</h4>
           </div>
           <div class="modal-footer">
             <a className="modal-close waves-effect waves-red btn-flat">
@@ -55,4 +59,4 @@ class Modal extends Component {
   }
 }
 
-export default Modal;
+export default ItemModal;

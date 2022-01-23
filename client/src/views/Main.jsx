@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 import { Link } from "@reach/router";
 import Modal from "../components/modal";
+import ItemModal from "../components/ItemModal";
 
 const Main = (props) => {
   const [groceries, setGroceries] = useState(false);
@@ -42,9 +43,15 @@ const Main = (props) => {
                         Edit
                       </Link>
                       <span className="p-1" />
-                      <button className="btn btn-danger">Delete</button>
+                      <button
+                        className="btn modal-trigger"
+                        data-target={"ItemModal" + g._id}
+                      >
+                        Delete
+                      </button>
                     </div>
                   </td>
+                  <ItemModal item={g} />
                 </tr>
               );
             })}
