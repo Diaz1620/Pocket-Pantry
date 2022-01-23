@@ -1,9 +1,9 @@
-import "./userLoginPage.css";
+import "./Login.css";
 import Axios from "axios";
 import { useEffect, useState } from "react";
-import Login from "./login";
+import LoginPage from "../components/loginPage";
 
-const UserLoginPage = () => {
+const Login = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = (validation) => {
@@ -17,9 +17,9 @@ const UserLoginPage = () => {
     </>
   ) : (
     <>
-      <Login valid={handleLogin} />
+      <LoginPage valid={handleLogin} />
     </>
   );
 };
 
-export default UserLoginPage;
+export default Login;
