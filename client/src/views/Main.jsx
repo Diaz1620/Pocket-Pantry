@@ -3,6 +3,7 @@ import Axios from "axios";
 import { Link } from "@reach/router";
 import Modal from "../components/modal";
 import ItemModal from "../components/ItemModal";
+import EditModal from "../components/editModal";
 
 const Main = (props) => {
   const [groceries, setGroceries] = useState(false);
@@ -13,11 +14,11 @@ const Main = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleDestroyGrocery = id => {
+  const handleDestroyGrocery = (id) => {
     Axios.delete(`http://localhost:8000/api/groceries/${id}`)
-        .then(res => setGroceries(res.data.results))
-        .catch(err => console.log(err))
-}
+      .then((res) => setGroceries(res.data.results))
+      .catch((err) => console.log(err));
+  };
 
   return groceries ? (
     <>
@@ -45,24 +46,34 @@ const Main = (props) => {
                   <td>{g.category}</td>
                   <td>
                     <div className="d-flex justify-content-center">
-                      <Link to={`/edit/${g._id}`} className="btn btn-primary">
+                      {/* <Link to={`/edit/${g._id}`} className="btn btn-primary">
                         Edit
-                      </Link>
+                      </Link> */}
+                      <button
+                        className="btn modal-trigger"
+                        data-target={"EditModal" + g._id}
+                      >
+                        Edit
+                      </button>
                       <span className="p-1" />
 
-                      <button
+                      {/* <button
                         className="btn modal-trigger"
                         data-target={"ItemModal" + g._id}
                       >
                         Test Modal
+                      </button> */}
+
+                      <button
+                        onClick={() => handleDestroyGrocery(g._id)}
+                        className="btn waves-effect red accent-3 modal-close"
+                      >
+                        Delete
                       </button>
-
-                      <button onClick={() => handleDestroyGrocery(g._id)}  
-                              className="btn btn-danger">Delete</button>
-
                     </div>
                   </td>
-                  <ItemModal item={g} />
+                  {/* <ItemModal item={g} /> */}
+                  <EditModal item={g} />
                 </tr>
               );
             })}
