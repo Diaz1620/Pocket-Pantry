@@ -1,13 +1,14 @@
 import Axios from "axios";
 import { useEffect, useState } from "react";
 import "./loginPage.css";
+import { navigate } from '@reach/router';
 
 const LoginPage = (props) => {
   const [usersList, setUsersList] = useState([]);
   const [user, setUser] = useState({
     email: "",
     password: "",
-  }); 
+  });
 
   const handleInputChange = (e) => {
     setUser({
@@ -16,20 +17,28 @@ const LoginPage = (props) => {
     });
   };
 
-  const handleSubmit = () => {
-    let guy = { ...user };
-    let list = [...usersList];
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    for (let i = 0; i < list.length; i++) {
-      let u = list[i];
-      if (guy.email == u.email) {
-        props.valid(true);
-        console.log("Correct Login");
-      } else {
-        console.log("Wrong Login");
-      }
-    }
+    Axios.post("http://localhost:8000/api/login", user)
+        .then(res => navigate("/list"))
+        .catch(err => {
+          console.log(err.response.data.errors);
+        });
+
   };
+  // let guy = { ...user };
+  // let list = [...usersList];
+
+  // for (let i = 0; i < list.length; i++) {
+  //   let u = list[i];
+  //   if (guy.email == u.email) {
+  //     props.valid(true);
+  //     console.log("Correct Login");
+  //   } else {
+  //     console.log("Wrong Login");
+  //   }
+  // }
 
   const test = () => {
     console.log(user);

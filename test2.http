@@ -2,15 +2,31 @@ GET http://localhost:8000/api/users HTTP/1.1
 
 ###
 
-POST http://localhost:8000/api/users HTTP/1.1
+POST http://localhost:8000/api/register HTTP/1.1
 Content-Type: application/json
 
 {
     "firstName":"Edward",
     "lastName":"Santiago",
     "email":"testemail@email.com",
-    "password":"TestPass112"
+    "password":"TestPass112",
+    "confirmPassword":"TestPass112"
 } 
+
+###
+
+POST http://localhost:8000/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"testemail@email.com",
+    "password":"TestPass112"
+}
+
+###
+
+DELETE  http://localhost:8000/api/logout HTTP/1.1
+
 
 ###
 
@@ -24,7 +40,7 @@ Content-Type: application/json
 {
     "firstName":"Lionel",
     "lastName":"Richie",
-    "email":"testemail@email.com",
+    "email":"lionelemail@email.com",
     "password":"TestPass112"
 }
 

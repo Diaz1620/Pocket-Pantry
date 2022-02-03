@@ -27,13 +27,13 @@ const UserSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
-UserSchema.pre('save', function(next) {
-    bcrypt.hash(this.password, 10)
-        .then(hash => {
-        this.password = hash;
-        next();
-        });
-    });
+// UserSchema.pre('save', function(next) {
+//     bcrypt.hash(this.password, 10)
+//         .then(hash => {
+//         this.password = hash;
+//         next();
+//         });
+//     });
 
 UserSchema.virtual('confirmPassword')
     .get( () => this._confirmPassword )
@@ -46,13 +46,6 @@ UserSchema.virtual('confirmPassword')
         next();
     });
 
-UserSchema.pre('save', function(next) {
-    bcrypt.hash(this.password, 10)
-        .then(hash => {
-        this.password = hash;
-        next();
-        });
-    });
 
 const User = mongoose.model("User",UserSchema);
 

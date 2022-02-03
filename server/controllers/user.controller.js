@@ -1,6 +1,7 @@
 const User = require("../models/user.model");
 
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
 
 
 
@@ -17,17 +18,17 @@ module.exports = {
             return res.sendStatus(400);
         }
 
-        const correctPassword = await bcrypt.compare(req.body.password, user.password);
+        // const correctPassword = await bcrypt.compare(req.body.password, user.password);
 
-        if(!correctPassword) {
-            return res.sendStatus(400);
+        if(req.body.password != user.password) {
+            return res.sendStatus(401);
         }
 
         const userToken = jwt.sign({
             id: user._id
         }, process.env.SECRET_KEY);
 
-        res.cookie("usertoken", userToken, secret, { httpOnly: true })
+        res.cookie("usertoken", userToken, { httpOnly: true })
             .json({ msg: "success!" });
     },
     register: (req,res) => {

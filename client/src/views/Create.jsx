@@ -43,7 +43,7 @@ const Create = (props) => {
     e.preventDefault();
 
     Axios.post("http://localhost:8000/api/groceries", groceryForm)
-      .then((res) => navigate("/"))
+      .then((res) => navigate("/list"))
       .catch((err) => {
         console.log(err.response.data.errors);
         setErrors(err.response.data.errors);
