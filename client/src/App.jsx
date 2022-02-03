@@ -13,6 +13,7 @@ import Main from "./views/Main";
 import Create from "./views/Create";
 import Edit from "./views/Edit";
 import Login from "./views/Login";
+import UserCreate from "./views/UserCreate";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Create path="/new" />
         <Edit path="/edit/:id" />
         <Login path="/" />
+        <UserCreate path="/register" />
       </Router>
     </div>
   );
