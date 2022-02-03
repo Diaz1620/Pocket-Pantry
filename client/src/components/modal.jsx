@@ -41,14 +41,14 @@ class Modal extends Component {
           <div className="modal-content">
             <Create></Create>
           </div>
-          <div class="modal-footer">
+          {/* <div class="modal-footer">
             <a className="modal-close waves-effect waves-red btn-flat">
               Disagree
             </a>
             <a className="modal-close waves-effect waves-green btn-flat">
               Agree
             </a>
-          </div>
+          </div> */}
         </div>
       </>
     );
